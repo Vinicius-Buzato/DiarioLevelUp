@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Backstage - Notícias</title>
+
+    <!-- Inline script: aplica modo escuro ANTES de carregar CSS para evitar flash -->
+    <script>
+        (function(){
+            try {
+                if (localStorage.getItem('theme') === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    // also set body class if available (some browsers may not have body yet)
+                    if (document.body) document.body.classList.add('dark');
+                }
+            } catch(e) {
+                // silent
+            }
+        })();
+    </script>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+    <h1 class="logo"><a href="index.html">Backstage</a></h1>
+
+    <nav>
+        <!-- header links now set to index.html#category so news page header links work -->
+        <a href="index.html">Início</a>
+        <a href="index.html#politica">Política</a>
+        <a href="index.html#ciencia">Ciência</a>
+        <a href="index.html#cotidiano">Cotidiano</a>
+    </nav>
+
+    <button id="themeToggle" aria-label="Alternar tema">🌙</button>
+</header>
+
+<main class="container">
+
+    <!-- category filter (only visual control on index) -->
+    <div class="category-filter" aria-hidden="false">
+        <button class="category-btn active" id="todas" onclick="filterCategory('todas')">Todas</button>
+        <button class="category-btn" id="politica" onclick="filterCategory('politica')">Política</button>
+        <button class="category-btn" id="ciencia" onclick="filterCategory('ciencia')">Ciência</button>
+        <button class="category-btn" id="cotidiano" onclick="filterCategory('cotidiano')">Cotidiano</button>
+    </div>
+
+    <section class="cards">
+
+        <div class="card" data-category="politica" onclick="location.href='noticia1.html'">
+            <img src="https://picsum.photos/seed/politica/800/500" alt="Política">
+            <h3>Congresso debate nova reforma estrutural</h3>
+            <p>Discussões avançam sobre mudanças importantes no sistema administrativo.</p>
+        </div>
+
+        <div class="card" data-category="ciencia" onclick="location.href='noticia2.html'">
+            <img src="https://picsum.photos/seed/ciencia/800/500" alt="Ciência">
+            <h3>Cientistas encontram possível oceano subterrâneo</h3>
+            <p>Descoberta em lua distante pode abrir caminho para busca por vida.</p>
+        </div>
+
+        <div class="card" data-category="cotidiano" onclick="location.href='noticia3.html'">
+            <img src="https://picsum.photos/seed/cotidiano/800/500" alt="Cotidiano">
+            <h3>Moradores encontram “bolha gigante” após tempestade</h3>
+            <p>Fenômeno curioso chama atenção e viraliza nas redes sociais.</p>
+        </div>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

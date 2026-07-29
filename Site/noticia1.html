@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Backstage — Reforma Estrutural</title>
+
+    <!-- aplica modo antes do CSS para evitar flash -->
+    <script>
+        (function(){
+            try {
+                if (localStorage.getItem('theme') === 'dark') {
+                    document.documentElement.classList.add('dark');
+                }
+            } catch(e){}
+        })();
+    </script>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+    <h1 class="logo"><a href="index.html">Backstage</a></h1>
+
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="index.html#politica">Política</a>
+        <a href="index.html#ciencia">Ciência</a>
+        <a href="index.html#cotidiano">Cotidiano</a>
+    </nav>
+
+    <button id="themeToggle" aria-label="Alternar tema">🌙</button>
+</header>
+
+<main class="article-container">
+    <h1>Congresso debate nova reforma estrutural</h1>
+    <p class="subheadline">Pacote de medidas que altera a administração pública entra em pauta com ampla discussão.</p>
+
+    <img src="https://picsum.photos/seed/politica1/1000/600" alt="Reforma" class="noticia-img">
+
+    <p>O Congresso Nacional iniciou nesta semana a análise de um extenso projeto que promete reformular partes da estrutura administrativa do Estado. A proposta — fruto de meses de reuniões entre ministérios — foi apresentada com a promessa de tornar a máquina pública mais ágil.</p>
+
+    <p>Os debatedores destacam pontos como redução de processos internos, digitalização total de serviços e um novo marco para contratações emergenciais. Críticos alertam para a necessidade de salvaguardas e transparência, enquanto apoiadores reforçam ganhos potenciais em eficiência.</p>
+
+    <img src="https://picsum.photos/seed/politica2/1000/600" alt="Debate" class="noticia-img">
+
+    <p>Especialistas em administração pública foram convocados para dar pareceres e contribuir com emendas. A expectativa é que o texto passe por comissões antes de ir para o plenário, em um cronograma que pode se estender por semanas.</p>
+
+    <img src="https://picsum.photos/seed/politica3/1000/600" alt="Audiência" class="noticia-img">
+
+    <p>Enquanto isso, a sociedade civil acompanha atentamente as discussões, e organizações não governamentais já solicitaram audiências públicas para debater o impacto das medidas em direitos e serviços essenciais.</p>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Backstage — Bolha Gigante</title>
+
+    <script>
+        (function(){ try { if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark'); } catch(e){} })();
+    </script>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+    <h1 class="logo"><a href="index.html">Backstage</a></h1>
+
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="index.html#politica">Política</a>
+        <a href="index.html#ciencia">Ciência</a>
+        <a href="index.html#cotidiano">Cotidiano</a>
+    </nav>
+
+    <button id="themeToggle" aria-label="Alternar tema">🌙</button>
+</header>
+
+<main class="article-container">
+    <h1>Moradores encontram “bolha gigante” após tempestade no interior</h1>
+    <p class="subheadline">Fenômeno espumoso chamou atenção e deixou cientistas curiosos.</p>
+
+    <img src="https://picsum.photos/seed/cotidiano1/1000/600" class="noticia-img" alt="Bolha gigante">
+
+    <p>Após uma tempestade intensa, moradores encontraram uma grande formação espumosa no centro da cidade. A estrutura lembrava uma bolha translúcida e se manteve estável por algum tempo antes de desaparecer.</p>
+
+    <img src="https://picsum.photos/seed/cotidiano2/1000/600" class="noticia-img" alt="Pessoas observando">
+
+    <p>Autoridades recolheram amostras para análise e o caso vem despertando hipóteses que vão desde acúmulo de espuma orgânica até misturas de detergentes arrastados pela enxurrada.</p>
+
+    <img src="https://picsum.photos/seed/cotidiano3/1000/600" class="noticia-img" alt="Análise de amostras">
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
