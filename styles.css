@@ -1,4 +1,4 @@
-/* styles.css - Refatorado para Single Page Application (SPA) com Tipografia Unificada (Inter)
+/* styles.css - Refatorado e Limpo
    Paleta: Azul Celeste Porto Rico (#5BA3DD), Vermelho (#ED0000), Off-white e Preto.
    Tipografia: Inter (Sans-serif moderno) em toda a aplicação.
 */
@@ -55,7 +55,7 @@ body {
   min-height: 100vh; 
 }
 
-main, .article, .container {
+main, .article {
   flex: 1; 
   width: 100%; 
 }
@@ -68,7 +68,7 @@ h1, h2, h3, .title {
   letter-spacing: -0.02em;
 }
 
-/* Header SPA */
+/* Header Limpo e Centralizado */
 .header {
   position: fixed;
   top: 0; left: 0; width: 100%;
@@ -78,64 +78,35 @@ h1, h2, h3, .title {
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
   padding: 0 20px;
-  display: grid;
-  grid-template-columns: auto 1fr auto; /* Garante que os lados ocupem o espaço ideal e o botão vá para a ponta */
+  display: flex;
+  justify-content: center; /* Centraliza o logo no Header */
   align-items: center;
   transition: background 0.3s ease;
 }
 
 .header .brand {
-  grid-column: 2; /* Força o logo/marca a ficar exatamente na coluna central */
-  text-align: center;
-  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.header .brand a.title-link {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 24px;
-  font-weight: 700;
+.header .brand a.logo-link {
+  display: block;
   text-decoration: none;
-  color: var(--white);
-  letter-spacing: -0.01em;
 }
 
 .header-logo {
   max-height: 50px; 
   width: auto;      
   display: block;
-  margin: 0 auto;
   transition: opacity 0.2s;
 }
 
 .header-logo:hover { opacity: 0.9; }
 
-.nav-container { 
-  grid-column: 1;
-  justify-self: start; 
-}
-
-.nav-links {
-  display: flex;
-  align-items: center; 
-  gap: 20px;         
-  height: 100%;          
-}
-
-.nav-links a {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 15px;
-  transition: opacity 0.2s;
-}
-
-.nav-links a:hover { opacity: 0.8; }
-
-.mobile-menu-btn { display: none; }
-
 #themeToggle {
-  grid-column: 3; /* Força o botão de tema para a extremidade direita da grid */
-  justify-self: end; 
+  position: absolute; /* Fixa o botão na direita, independente do logo */
+  right: 20px;
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--white);
@@ -148,52 +119,6 @@ h1, h2, h3, .title {
 
 #themeToggle:hover {
   background: rgba(255, 255, 255, 0.25);
-}
-
-/* Container Principal */
-.container {
-  max-width: 1100px;
-  margin: 36px auto;
-  padding: 0 18px;
-}
-
-/* Destaque / Hero */
-.hero {
-  background: var(--card);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: 0 6px 22px rgba(0,0,0,0.06);
-  position: relative;
-}
-
-.hero img {
-  width: 100%;
-  display: block;
-  height: 420px;
-  object-fit: cover;
-}
-
-.hero .hero-content {
-  position: absolute;
-  left: 28px;
-  bottom: 28px;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
-  color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 80%;
-}
-
-.hero .hero-content h1 {
-  margin: 0 0 8px 0;
-  font-size: 28px;
-  line-height: 1.15;
-}
-
-.hero .hero-content p {
-  margin: 0;
-  opacity: 0.95;
-  font-weight: 400;
 }
 
 /* Corpo do Artigo / Editorial */
@@ -242,17 +167,17 @@ html.dark .article p.article-info strong {
 }
 
 /* Estilização dos H2 e H3 */
-.article h2, .container h2, .article h3 {
+.article h2, .article h3 {
   color: #3d85c6;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 
-html.dark .article h2, html.dark .container h2, html.dark .article h3 {
-  color: #64b5f6; /* Azul ligeiramente mais claro para ter ótimo contraste no fundo escuro */
+html.dark .article h2, html.dark .article h3 {
+  color: #64b5f6;
 }
 
-.article h2, .container h2 {
+.article h2 {
   font-size: 24px;
   margin-top: 36px;
   margin-bottom: 16px; 
@@ -332,6 +257,7 @@ html.dark .highlight {
   display: flex;
   align-items: center; 
   gap: 25px;
+  margin-bottom: 20px;
 }
 
 .album-container figure.article-image {
@@ -354,7 +280,6 @@ html.dark .highlight {
 .album-container ul {
   margin: 0; 
   padding-left: 20px;
-  transform: translateY(-15px); 
 }
 
 .album-container ul li {
@@ -387,117 +312,34 @@ html.dark .title-part-2 { color: var(--white); }
   scroll-margin-top: 90px; 
 }
 
-/* Responsividade & Menu Mobile */
-@media (max-width: 900px) {
-  .header {
-    grid-template-columns: 50px 1fr 50px; 
-    padding: 0 10px;
-  }
-
-  .mobile-menu-btn {
-    display: block;
-    background: transparent;
-    border: none;
-    color: var(--white);
-    font-size: 28px;
-    cursor: pointer;
-    padding: 0;
-    justify-self: start;
-    z-index: 1001;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 70px; 
-    left: -320px; 
-    width: 300px; 
-    max-width: 85vw; 
-    height: calc(100vh - 70px);
-    background: var(--card); 
-    border-right: 1px solid var(--card-strip); 
-    box-shadow: 4px 0 15px rgba(0,0,0,0.1); 
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 30px;
-    transition: left 0.3s ease-in-out; 
-    z-index: 999;
-  }
-
-  .nav-links.active { left: 0; }
-
-  .header .nav-links a {
-    color: var(--black);
-    font-size: 16px; 
-    padding: 15px 20px;
-    width: 100%; 
-    text-align: left; 
-    border-bottom: 1px solid var(--card-strip);
-  }
-
-  html.dark .header .nav-links a { color: var(--white); }
-
-  .hero img { height: 260px; }
-  .hero .hero-content {
-    left: 14px; bottom: 14px; 
-    padding: 15px; 
-    max-width: calc(100% - 28px); 
-    font-size: 14px;
-  }
-}
-
 /* =========================================
    Citação Especial em Destaque
    ========================================= */
 .quote-especial {
   position: relative;
-  text-align: center;
-  padding: 35px 20px;
-  margin: 50px auto;
-  max-width: 800px; /* Mantém a proporção do texto bem distribuída */
-  
-  /* Linhas finas cinzas */
-  border-top: 1px solid var(--card-strip);
-  border-bottom: 1px solid var(--card-strip);
-  
-  /* Texto com a cor azul dos títulos */
-  color: #3d85c6; 
-  font-size: 20px;
-  line-height: 1.5;
-}
-
-/* =========================================
-   Citação Especial em Destaque (Texto à Esquerda, Traços Centralizados)
-   ========================================= */
-.quote-especial {
-  position: relative;
-  text-align: left; /* Alinha o texto à esquerda */
+  text-align: left;
   padding: 35px 30px;
   margin: 50px auto;
   max-width: 800px;
-  
-  /* Linhas finas cinzas */
   border-top: 1px solid var(--card-strip);
   border-bottom: 1px solid var(--card-strip);
-  
-  /* Texto com a cor azul dos títulos */
   color: #3d85c6; 
   font-size: 20px;
   line-height: 1.5;
 }
 
 html.dark .quote-especial {
-  color: #64b5f6; /* Garante o contraste adequado no modo escuro */
+  color: #64b5f6;
 }
 
-/* Criando o traço mais grosso centralizado */
 .quote-especial::before,
 .quote-especial::after {
   content: "";
   position: absolute;
-  left: 50%; /* Mantém o traço centralizado horizontalmente */
-  transform: translateX(-50%); /* Centraliza perfeitamente */
-  width: 120px; /* Largura do detalhe azul */
-  height: 4px;  /* Espessura do detalhe azul */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px; 
+  height: 4px;  
   background-color: #3d85c6;
 }
 
@@ -506,16 +348,9 @@ html.dark .quote-especial::after {
   background-color: #64b5f6;
 }
 
-/* Posicionando exatamente sobre as linhas finas */
-.quote-especial::before {
-  top: -2.5px; 
-}
+.quote-especial::before { top: -2.5px; }
+.quote-especial::after { bottom: -2.5px; }
 
-.quote-especial::after {
-  bottom: -2.5px;
-}
-
-/* Garante o peso da fonte da primeira parte da frase */
 .quote-especial strong {
   font-weight: 700;
 }
@@ -534,10 +369,49 @@ html.dark .quote-especial::after {
   border-radius: var(--radius) !important;
 }
 
-/* Responsividade para telas menores */
+/* =========================================
+   Seção de Fontes (Fim da Matéria)
+   ========================================= */
+.fontes-materia {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.fontes-materia strong {
+  font-weight: 700;
+  color: #333;
+}
+
+html.dark .fontes-materia {
+  border-top: 1px solid #333;
+  color: #aaa;
+}
+
+html.dark .fontes-materia strong {
+  color: #ddd;
+}
+
+/* =========================================
+   Classe para Destaque Azul (Final do Texto)
+   ========================================= */
+.blue-text {
+  color: #3d85c6;
+}
+
+html.dark .destaque-azul {
+  color: #64b5f6;
+}
+
+/* =========================================
+   Responsividade Global e Mobile
+   ========================================= */
 @media (max-width: 850px) {
   .article img.capa-full {
-    width: 100%;              /* No mobile, ocupa 100% da largura da tela com respiro */
+    width: 100%;
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
@@ -546,32 +420,33 @@ html.dark .quote-especial::after {
   }
 }
 
-/* =========================================
-   Seção de Fontes (Fim da Matéria)
-   ========================================= */
-.fontes-materia {
-  margin-top: 60px;          /* Espaço grande separando do último parágrafo */
-  padding-top: 20px;         /* Espaço entre a linha e o texto das fontes */
-  border-top: 1px solid #e0e0e0; /* Linha sutil de separação */
-  font-size: 16px;           /* Tamanho um pouco menor para indicar que são metadados */
-  color: #555;               /* Cor um pouco mais suave que o texto principal */
-  line-height: 1.5;
-}
+@media (max-width: 768px) {
+  .header {
+    padding: 0 15px;
+  }
+  
+  #themeToggle {
+    right: 15px; /* Ajuste da margem do botão para telas menores */
+  }
+  
+  .album-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .album-container figure.article-image {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .album-container figure.article-image figcaption {
+    text-align: center;
+  }
 
-/* Deixa a palavra "Fontes:" com mais destaque */
-.fontes-materia strong {
-  font-weight: 700;
-  color: #333;
-}
-
-/* =========================================
-   Adaptação para o Modo Escuro
-   ========================================= */
-html.dark .fontes-materia {
-  border-top: 1px solid #333;
-  color: #aaa;
-}
-
-html.dark .fontes-materia strong {
-  color: #ddd;
+  .album-container ul {
+    text-align: left;
+    padding-left: 0;
+    list-style-position: inside; 
+  }
 }
